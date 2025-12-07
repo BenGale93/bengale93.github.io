@@ -62,7 +62,7 @@ struct MarkdownScope {
 ```
 
 Sadly, Python enums cannot hold data like section or subsection names, how can
-we apply this powerful pattern? We can use typing.Union.
+we apply this powerful pattern? We can use `typing.Union`.
 
 ```python
 from dataclasses import dataclass
@@ -88,14 +88,14 @@ class SectionAndSubsection:
 MarkdownScope = SectionOrSubsection | Section | Subsection | SectionAndSubsection
 ```
 
-Each variant is defined as a dataclass and then grouped together in a union.
+Each variant is defined as a `dataclass` and then grouped together in a union.
 Any function or method that then operates on this data, should be type hinted
-with MarkdownScope
+with `MarkdownScope`.
 
-Unlike Rust, you cannot then define methods on MarkdownScope. However, you can
+Unlike Rust, you cannot then define methods on `MarkdownScope`. However, you can
 instead rely on polymorphism and define a common method on each variant. If it
 has an identical signature, you can then safely call it on an instance of
-MarkdownScope. Try it yourself, and you will see, mypy won’t shout at you.
+`MarkdownScope`. Try it yourself, and you will see, mypy won’t shout at you.
 
 ```python
 @dataclass
@@ -128,13 +128,13 @@ def validate_structure(
 ```
 
 The drawback of this approach is the verbosity, which could be even worse
-without the datatclasses library. This is a small price to pay, especially
+without the `dataclasses` library. This is a small price to pay, especially
 given how quickly we can write code these days.
 
 #### An Aside on Result an Option
 
-The two most widely used enums in Rust are the Result and Option types.
-Functions in Rust that can go wrong return a Result rather than throw an
+The two most widely used enums in Rust are the `Result` and `Option` types.
+Functions in Rust that can go wrong return a `Result` rather than throw an
 exception. This lets all callers know exactly how the function could go wrong,
 not something you can do in Python. Whilst this pattern is extremely useful for
 writing robust code, I would hesitate to recommend it in Python due to it not
@@ -142,11 +142,9 @@ being a built-in part of the language. If you are interested in trying it out
 and potentially annoying your colleagues, check out:
 [Returns](https://github.com/dry-python/returns?tab=readme-ov-file#result-container)
 
-Options are essentially a much better version of T | None. The difference is
-that the
-
-Option<T> type in Rust offers a bunch of helper methods to make your code nice
-and concise. Again, the Returns library offers something similar.
+`Options` are essentially a much better version of T | None. The difference is
+that the `Option<T>` type in Rust offers a bunch of helper methods to make your
+code nice and concise. Again, the Returns library offers something similar.
 
 ### Parse, don't validate
 
@@ -178,7 +176,8 @@ message? What if you forget to use it? Instead, let’s encapsulate
 relevant object, we can be confident it always upholds this property. As best
 we can in Python, of course.
 
-For this pattern, I tend to reach for Pydantic models. In our example:
+For this pattern, I tend to reach for
+[Pydantic](https://docs.pydantic.dev/latest/) models. In our example:
 
 ```python
 import typing as t
