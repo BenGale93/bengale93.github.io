@@ -1,5 +1,3 @@
-# Ben Askew-Gale's Blog
-
 Hi, I’m Ben Askew-Gale
 
 I'm interested in Python and Rust.

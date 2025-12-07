@@ -1,11 +1,4 @@
----
-layout: post
-title: "Type Driven Design in Python"
-date: 2025-12-07 12:00:00 -0000
-categories: python rust types pydantic
----
-
-# Type driven design in Python
+## Type driven design in Python
 
 Type driven design is the idea of trying to put as much of the logic of your
 program into your types. It allows you to enforce business logic at compile
@@ -18,7 +11,7 @@ for Python developers?
 If you are a willing to use type hints and stay away from the more dynamic
 features, quite a lot.
 
-## Better Enums
+### Better Enums
 
 Enums are a data type that represent a fix set, or enumeration, of values. This
 can be useful for representing concepts like: days of the week, cardinal
@@ -138,7 +131,7 @@ The drawback of this approach is the verbosity, which could be even worse
 without the datatclasses library. This is a small price to pay, especially
 given how quickly we can write code these days.
 
-### An Aside on Result an Option
+#### An Aside on Result an Option
 
 The two most widely used enums in Rust are the Result and Option types.
 Functions in Rust that can go wrong return a Result rather than throw an
@@ -155,7 +148,7 @@ that the
 Option<T> type in Rust offers a bunch of helper methods to make your code nice
 and concise. Again, the Returns library offers something similar.
 
-## Parse, don't validate
+### Parse, don't validate
 
 Say you have a list in your program that should always be non-empty. Depending
 on how defensive you are being, you can either just assume this:
@@ -255,7 +248,7 @@ For a much deeper dive on this topic, please read the article that inspired
 this section [Parse, don’t
 validate](https://lexi-lambda.github.io/blog/2019/11/05/parse-don-t-validate/).
 
-## Enriching Standard Library Types
+### Enriching Standard Library Types
 
 In the previous example, we enriched the list type by forcing it to be
 non-empty. We can go even further with this concept by enriching domain types
@@ -303,7 +296,7 @@ pattern above. You can of course override any existing methods you want to
 change the behaviour of. This is almost certainly overkill for a single method,
 but it gives you the flexibility to add as many as you want.
 
-## Conclusion
+### Conclusion
 
 Python is an incredibly flexible language with a vast ecosystem. However,
 sometimes that flexibility can cause issues. If you can’t/won’t leave the

@@ -1,0 +1,28 @@
+title: "Ben Askew-Gale's Blog"
+author: "Ben Askew-Gale"
+description: "Occasional musings about Python."
+
+github_username: "BenGale93"
+
+theme: "minima"
+
+rss: rss
+
+kramdown:
+  syntax_highlighter_opts:
+    disable: true
+
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+
+titles_from_headings:
+  strip_title: true
+  collections: true
+
+defaults:
+  - scope:
+      path: ""
+      type: post
+    values:
+      layout: "default"
